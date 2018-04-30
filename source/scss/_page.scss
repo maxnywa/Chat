@@ -1,0 +1,128 @@
+//----- Template -----
+%text-wrap-nowrap{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 80%;
+}
+
+//----- Header -----
+#header{
+  background-color: $primary-color;
+  height: 70px;
+}
+//----- Main -----
+#main {
+  .chat-container{
+    display: flex;
+    height: calc(100vh - 70px);
+    padding: 20px 50px;
+
+    #chat-rooms {
+      width: 100%;
+      max-width: 350px;
+      min-width: 275px;
+      background-color: $primary-white;
+      box-shadow: 0 0 25px rgba(53,152,219,.1);
+      display: flex;
+      flex-direction: column;
+
+      .create-chat{
+        padding: 0 15px;
+        background-color: $primary-white;
+
+        .creat-chat-title{
+          padding: 12px 0;
+          border-bottom: 1px solid #edf0f2;
+        }
+        //.creat-chat-title
+      }
+      //.create-chat
+
+      .chat-rooms-list{
+        overflow-y: auto;
+        .chat-room-list-item{
+          padding: 15px;
+          display: flex;
+          align-items: center;
+
+
+          &:hover{
+          background-color: $body-bg;
+        }
+          .user-img{
+            position: relative;
+            width: 40px;
+            height: 40px;
+
+            .unread-msg{
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              top: -5px;
+              right: -3px;
+              background-color: $primary-color;
+              line-height: 20px;
+              text-align: center;
+              color: #fff;
+              font-weight: 700;
+              box-shadow: 2px 0 10px rgba(53,152,219,.5);
+            }
+            //.unread-msg
+          }
+          //.user-img
+          .chat-room-list-info{
+            position: relative;
+            margin-left: 12px;
+            width: 80%;
+
+            .chat-room-list-title{
+              @extend %text-wrap-nowrap;
+              font-size: 16px;
+              font-weight: 700;
+              color: $dark-blue;
+              margin-bottom: 5px;
+            }
+            //.chat-room-list-title
+
+            .chat-room-list-last-msg{
+              @extend %text-wrap-nowrap;
+            }
+            //.chat-room-list-last-msg
+
+            .user-status{
+              position: absolute;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              top: 0;
+              right: 0;
+              &.online{
+                background-color: $primary-green-blue;
+                box-shadow: 0 2px 4px $primary-green-blue;
+              }
+              &.offline{
+                background-color: $light-blue;
+                box-shadow: 0 2px 4px $light-blue;
+              }
+            }
+            //.user-status
+
+            .last-msg-time{
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              color: #c9d6df;
+            }
+            //.last-msg-time
+          }
+        }
+        //.chat-room-list-item
+      }
+      //.chat-room-list
+    }
+    //#chat-rooms
+  }
+  //.chat-container
+}
